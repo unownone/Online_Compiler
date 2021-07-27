@@ -40,9 +40,17 @@ def compileCode(request):
     
 def code_form(request):
     if request.method=='POST':
-        return compileCode(request)
+        form=compileCode(request)
+        out={
+            'form':form['response'],
+            'flag':'false'
+        }
     else:
         form=codeForm()
+        out={
+            'form':form,
+            'flag':'true'
+        }
     
-    return render(request,'codeexec.html',{'form':form})
+    return render(request,'codeexec.html',out)
         

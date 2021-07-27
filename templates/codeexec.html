@@ -2,6 +2,9 @@
 <form method="POST" action="">
 ENTER YOUR CODE:<br>
 {% csrf_token %}
+{% autoescape on %}
+    {{ contact.info | linebreaksbr }}
 {{form}}
-<input type="submit" label="submit">
+{% endautoescape %}
+<input type="submit" label="submit" visible={{flag}}>
 </form> 
