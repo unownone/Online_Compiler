@@ -10,6 +10,7 @@ def compileCode(request):
         import sys 
         from io import StringIO
         import contextlib
+        print(request.POST.dtype())
         code=request.POST["code"]
         code=code.replace("input()","parameters")
         @contextlib.contextmanager
