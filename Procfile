@@ -1,1 +1,1 @@
-web: gunicorn Compiler.wsgi
+web: gunicorn myproject.wsgi
