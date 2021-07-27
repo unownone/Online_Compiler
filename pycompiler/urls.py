@@ -3,6 +3,6 @@ from django.urls import path,include
 from . import views as view
 
 urlpatterns=[
-    path('',view.compileCode,name="Submit form"),
-    path('compile',view.code_form, name="ONLINE COMPILER"),
+    path('compile',view.compileCode,name="Submit form"),
+    path('',view.code_form, name="ONLINE COMPILER"),
 ]
