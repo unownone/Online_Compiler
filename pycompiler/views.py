@@ -1,11 +1,11 @@
 from sys import stdout
 from typing import overload
-from django.http.response import HttpResponse
+from django.http.response import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
-from .getcode import codeForm
-def get_code(request):
+from .getcode import *
+def compileCode(request):
     if request.method=='POST':
         import sys 
         from io import StringIO
@@ -25,9 +25,24 @@ def get_code(request):
                 exec(code,{'parameters':request.POST["params"]})
             except Exception as e:
                 print(e)
-        form=s.getvalue()
+        from datetime import datetime as dt
+        response={
+            'time':dt.now(),
+            'code':code,
+            'response':s.getvalue()
+        }
+        return JsonResponse(response)
+    else:
+        response={
+            'response':'Invalid Request',
+        }
+        return JsonResponse(response)
+    
+def code_form(request):
+    if request.method=='POST':
+        return HttpResponseRedirect('compile',request)
     else:
         form=codeForm()
-        
+    
     return render(request,'codeexec.html',{'form':form})
         
