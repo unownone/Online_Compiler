@@ -4,5 +4,5 @@ from . import views as view
 
 urlpatterns=[
     path('',view.compileCode,name="Submit form"),
-    path('compile',view.get_code, name="ONLINE COMPILER"),
+    path('compile',view.code_form, name="ONLINE COMPILER"),
 ]
