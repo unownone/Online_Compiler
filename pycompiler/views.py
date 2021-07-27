@@ -40,7 +40,7 @@ def compileCode(request):
     
 def code_form(request):
     if request.method=='POST':
-        return HttpResponseRedirect('compile',request)
+        return compileCode(request)
     else:
         form=codeForm()
     
