@@ -3,7 +3,7 @@ from typing import overload
 from django.http.response import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-
+import json
 from .getcode import *
 def compileCode(request):
     if request.method=='POST':
@@ -40,7 +40,7 @@ def compileCode(request):
     
 def code_form(request):
     if request.method=='POST':
-        form=compileCode(request)
+        form=json.loads(compileCode(request).read())
         out={
             'form':form['response'],
             'flag':'false'
