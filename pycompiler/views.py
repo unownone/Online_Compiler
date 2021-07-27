@@ -40,16 +40,16 @@ def compileCode(request):
     
 def code_form(request):
     if request.method=='POST':
-        form=json.loads(compileCode(request).read())
+        form=json.loads(compileCode(request).content)
         out={
             'form':form['response'],
-            'flag':'false'
+            'flag':'hidden',
         }
     else:
         form=codeForm()
         out={
             'form':form,
-            'flag':'true'
+            'flag':'',
         }
     
     return render(request,'codeexec.html',out)

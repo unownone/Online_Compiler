@@ -1,10 +1,11 @@
+<div id="a" margin=250px>
 <h1>ONLINE COMPILER</h1>
 <form method="POST" action="">
-ENTER YOUR CODE:<br>
+<h3 {{ flag }}>ENTER YOUR CODE:<br></h3>
 {% csrf_token %}
 {% autoescape on %}
-    {{ contact.info | linebreaksbr }}
-{{form}}
+{{ form | linebreaks }}
 {% endautoescape %}
-<input type="submit" label="submit" visible={{flag}}>
+<input type="submit" label="submit" {{ flag }}>
 </form> 
+</div>
