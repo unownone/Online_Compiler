@@ -1,12 +1,10 @@
-from json.encoder import JSONEncoder
 from sys import stdout
 from typing import overload
-from django.http.response import HttpResponse, JsonResponse
+from django.http.response import HttpResponse
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
-from .getcode import * 
-
+from .getcode import codeForm
 def get_code(request):
     if request.method=='POST':
         import sys 
@@ -27,14 +25,9 @@ def get_code(request):
                 exec(code,{'parameters':request.POST["params"]})
             except Exception as e:
                 print(e)
-        from datetime import datetime as dt
-        response={
-            'time':dt.now(),
-            'code':code,
-            'params':request.POST["params"],
-            'output':s.getvalue()
-        }
-        return JsonResponse(response)
+        form=s.getvalue()
     else:
-        return render(request,'codeexec.html',{'form':codeForm()})
+        form=codeForm()
+        
+    return render(request,'codeexec.html',{'form':form})
         
