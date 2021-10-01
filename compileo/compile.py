@@ -11,18 +11,22 @@ def main(code,language,id,arguments=None):
     if language =='python':
         with open(f'codes/python/{id}.py','w') as file:
             file.write(code)
+            time.sleep(1)
         return runPython(id,args=arguments)
     elif language =='cpp':
         with open(f'codes/cpp/{id}.cpp','w') as file:
             file.write(code)
+            time.sleep(1)
         return runCpp(id,args=arguments)
     elif language =='c':
         with open(f'codes/c/{id}.c','w') as file:
             file.write(code)
+            time.sleep(1)
         return runC(id,args=arguments)
     elif language =='java':
         with open(f'codes/java/{id}.java','w') as file:
             file.write(code)
+            time.sleep(1)
         return runJava(id,args=arguments)
 
 

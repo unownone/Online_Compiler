@@ -17,7 +17,7 @@ body {
 }
 
 /*Add an overlay to the entire page blocking any further presses to buttons or other elements.*/
-.overlay {
+.lds-dual-ring.hidden.overlay {
     position: fixed;
     top: 0;
     left: 0;
