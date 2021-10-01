@@ -1,0 +1,27 @@
+{%block content %}
+{% load static %}
+<head>
+<title>Compile.io</title>
+<link rel="stylesheet" href="{% static 'index.css' %}">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+<form id="formio">
+{% csrf_token %}
+<textarea id="code" placeholder="Enter code" col="100" rows="10"></textarea><br>
+<textarea id="args" placeholder="Enter Arguments(if any)" col="100" rows="3"></textarea><br>
+<select name="language" id="lang">
+  <option value="python">Python</option>
+  <option value="c">C</option>
+  <option value="cpp">C + +</option>
+  <option value="java">Java</option>
+</select>
+<button type="button" id="submit">Compile</button>
+</form>
+<div id="out">
+    <p id="push"></a>
+</div>
+<div class="lds-dual-ring hidden overlay" id="loader"></div>
+<script type="text/javascript" src="{% static 'js.js' %}"></script>
+</body>
+{%endblock %}
