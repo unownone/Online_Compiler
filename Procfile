@@ -1,1 +1,1 @@
-web: gunicorn compileio.asgi
+web: gunicorn compileio.wsgi
