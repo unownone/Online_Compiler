@@ -3,6 +3,9 @@ from django.http import JsonResponse
 from . import compile
 from datetime import datetime
 from uuid import uuid4
+
+SUPPORTED_LANGUAGES = {'Python','C++','Java','C'}
+
 def genId():
     with open('id.txt','r') as file:
         d = file.read()
@@ -17,7 +20,7 @@ def genId():
 # Create your views here.
 def home(request):
     if request.method == 'GET':
-        return render(request,'home.html')
+        return render(request,'home.html',{'langs':SUPPORTED_LANGUAGES})
     elif request.method == 'POST':
         values = dict(request.POST)
         id = genId()

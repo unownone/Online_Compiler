@@ -8,22 +8,22 @@ import time
 ######### being separated by an \n or newline escape character
 import os
 def main(code,language,id,arguments=None):
-    if language =='python':
+    if language =='Python':
         with open(f'codes/python/{id}.py','w') as file:
             file.write(code)
             time.sleep(1)
         return runPython(id,args=arguments)
-    elif language =='cpp':
+    elif language =='C++':
         with open(f'codes/cpp/{id}.cpp','w') as file:
             file.write(code)
             time.sleep(1)
         return runCpp(id,args=arguments)
-    elif language =='c':
+    elif language =='C':
         with open(f'codes/c/{id}.c','w') as file:
             file.write(code)
             time.sleep(1)
         return runC(id,args=arguments)
-    elif language =='java':
+    elif language =='Java':
         with open(f'codes/java/{id}.java','w') as file:
             file.write(code)
             time.sleep(1)
